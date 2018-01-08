@@ -9,7 +9,7 @@ package com.ruhani.futoshiki;/*
  * @author Ruhani
  */
 public class ValueSelectionClass {
-    
+
     int size;
     int[][] board;
 
@@ -22,11 +22,11 @@ public class ValueSelectionClass {
         }
 
     }
-    
+
     public int[][] recursion (int[][] array, int n)
     {
         if(arrayCount(array)) return array;
-        
+
         int selected = firstValueSelect(array);
         for (int i = 1; i <= n; i++) {
             if(consistencyCheck(array, (selected/n), (selected%n),i))
@@ -39,14 +39,14 @@ public class ValueSelectionClass {
                 }
                 array[selected/n][selected%n]=previous;
             }
-            
+
         }
         return array;
-        
+
     }
-    
+
     public void showArray(int[][] a)
-    {        
+    {
         System.out.println("_________________");
         for (int i = 0; i < this.size; i++) {
             for (int j = 0; j < this.size; j++) {
@@ -56,7 +56,7 @@ public class ValueSelectionClass {
         }
         System.out.println("_________________");
     }
-    
+
     public boolean result (int[][] a)
     {
         for (int i = 0; i < this.size; i++) {
@@ -65,19 +65,19 @@ public class ValueSelectionClass {
             }
         }
         return true;
-        
+
     }
-    
+
     public boolean consistencyCheck(int[][] a,int row, int col, int val)
-    {        
-            for (int i = 0; i < this.size ; i++) {
-                if (i==col) continue;
-                if (a[row][i]==val) return false;
-            }        
-            for (int i = 0; i < this.size ; i++) {
-                if (i==row) continue;
-                if (a[i][col]==val) return false;
-            }        
+    {
+        for (int i = 0; i < this.size ; i++) {
+            if (i==col) continue;
+            if (a[row][i]==val) return false;
+        }
+        for (int i = 0; i < this.size ; i++) {
+            if (i==row) continue;
+            if (a[i][col]==val) return false;
+        }
         return true;
     }
     public int firstValueSelect(int [][] a){
@@ -85,7 +85,7 @@ public class ValueSelectionClass {
             for (int j = 0; j < this.size; j++) {
                 if(a[i][j]==0)  return (i*this.size+j);
             }
-        }        
+        }
         return -1;
     }
 
@@ -98,10 +98,6 @@ public class ValueSelectionClass {
         }
         if(count==this.size*this.size) return true;
         else return false;
-        
-    }
-    
-    
 
-    
+    }
 }
